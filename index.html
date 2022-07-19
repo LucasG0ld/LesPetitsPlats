@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Titre de la page</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <header>
+            <img class="lpp-logo" src="src/logo.svg" alt="Logo Les petits plats">
+        </header>
+        <section>
+            <form id="" class="lpp-searchbar-form">
+                <input class="lpp-searchbar" id="lpp-main-searchbar" type="text" placeholder="Rechercher une recette">
+                <button class="lpp-searchbar-button"><img src="src/search.svg" alt=""></button>
+            </form>
+            <div id="lpp-vignette-container" class="lpp-vignette-container"></div>
+            <div class="lpp-dropdown-container">
+                <form id="lpp-form-ingredient" class="lpp-dropdown lpp-ingredient" onclick="displayAsideIngredient()">
+                    <input class="lpp-ingredient" id="lpp-ingredient-searchbar" type="text" placeholder="Ingredients">
+                    <button class="lpp-ingredient-button"><img src="src/chevron-down.svg" alt=""></button>
+                    <aside id="lpp-aside-ingredient" id="lpp-aside-ingredient" class="lpp-aside-ingredient dp-none">
+                        <ul id="lpp-ul-ingredient">
+                        
+                        </ul>
+                    </aside>
+                </form>
+                
+
+                <form id="lpp-form-appareil" class="lpp-dropdown lpp-appareil" onclick="displayAsideAppareil()">
+                    <input class="lpp-appareil" id="lpp-appareil-searchbar" type="text" placeholder="Appareils">
+                    <button class="lpp-appareil-button"><img src="src/chevron-down.svg" alt=""></button>
+                    <aside id="lpp-aside-appareil" class="lpp-aside-appareil dp-none">
+                        <ul id="lpp-ul-appareil">
+                        </ul>
+                    </aside>
+                </form>
+
+                <form id="lpp-form-ustensile" class="lpp-dropdown lpp-ustensile" onclick="displayAsideUstensile()">
+                    <input class="lpp-ustensile" id="lpp-ustensile-searchbar" type="text" placeholder="Ustensiles">
+                    <button class="lpp-ustensile-button"><img src="src/chevron-down.svg" alt=""></button>
+                    <aside id="lpp-aside-ustensile" class="lpp-aside-ustensile dp-none">
+                        <ul id="lpp-ul-ustensile">
+                            
+                        </ul>
+                    </aside>
+                </form>
+
+            </div>
+        </section>
+        <section id="lpp-recipes-section">
+            
+        </section>
+    </main>
+
+
+</body>
+
+</html>

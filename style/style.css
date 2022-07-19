@@ -1,0 +1,261 @@
+
+:root {
+    --primary : #3282F7;
+    --secondary : #68D9A4;
+    --tertiary : #ED6454;
+}
+
+body {
+    margin: 42px 200px;
+    font-size: 18px;
+    font-family: Lato, Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    font-size: 22px;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+h2 img {
+    margin-right: 5px;
+}
+
+header {
+    display: flex;
+    margin-bottom: 17px;
+}
+
+form {
+    width: 170px;
+    display: flex;
+    border-radius: 5px;
+    flex-wrap: wrap;
+}
+
+input {
+    height: 60px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    width: 80%;
+    outline: none;
+    padding: 0 15px;
+    box-sizing: border-box;
+    color: white
+}
+
+button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+    pointer-events: none;
+	cursor: pointer;
+	outline: inherit;
+    border-radius: 0 5px 5px 0;
+    width: 20%; 
+}
+
+article {
+    width: 32%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+aside {
+    display: flex;
+    border-radius: 0 5px 5px 0;
+    flex-wrap: wrap;
+    margin-top: -5px;
+    z-index: 10; 
+    width: 100%;  
+}
+
+aside ul {
+    width: 100%;
+    display: flex;
+    border-radius: 0 0 5px 5px;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+
+aside ul li {
+    width: 33.33%;
+    color: #fff;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+#lpp-recipes-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.dp-none {
+    display: none;
+}
+
+.dp-flex {
+    display: flex;
+}
+
+.lpp-input-onclick {
+    width: 760px!important;
+    height: 60px;
+}
+
+.lpp-logo {
+    margin: auto;
+}
+
+.lpp-searchbar-form {
+    background: #E7E7E7;
+    width: 100%; 
+    margin-bottom: 25px;
+}
+
+.lpp-searchbar {
+    background: #E7E7E7;
+    width: 95%; 
+    padding: 0 24px;
+    color: #ADADAD;
+}
+
+.lpp-searchbar-button {
+    width: 5%;
+}
+
+.lpp-dropdown-container {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.lpp-dropdown {
+    margin-right: 20px;
+    width: 170px;
+    height: 60px;
+}
+
+::placeholder {
+    color: white;
+    font-weight: 700;
+}
+
+.lpp-searchbar::placeholder {
+    color: #ADADAD;
+}
+
+.lpp-ingredient, .lpp-ingredient-button {
+    background: var(--primary);
+}
+
+.lpp-appareil {
+    background: var(--secondary);
+}
+
+.lpp-ustensile {
+    background: var(--tertiary);
+}
+
+.lpp-recette-image {
+    width: 100%;
+    height: 178px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+.lpp-recette-container {
+    padding: 20px;
+}
+
+.lpp-recette-header {
+    justify-content: space-between;
+}
+
+.lpp-recette-header-time {
+    font-weight: 700;
+}
+
+.lpp-recette-time {
+    width: 24px;
+    height: 27px;
+}
+
+.lpp-recette-text {
+    display: flex;
+    font-size: 16px;
+    justify-content: space-between;
+}
+
+.lpp-recette-text ul {
+    width: 48.5%;
+}
+
+.lpp-recette-text span {
+    width: 48.5%;
+}
+
+.lpp-recette-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+    overflow: hidden;
+}
+
+.lpp-aside-ingredient {
+    background: var(--primary);
+}
+
+.lpp-aside-appareil {
+    background: var(--secondary);
+}
+
+.lpp-aside-ustensile {
+    background: var(--tertiary);
+}
+
+.lpp-vignette-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lpp-vignette {
+    border-radius: 10px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.lpp-vignette p {
+    margin-right: 20px;
+    color: #fff;
+}
+
+.lpp-vignette img {
+    cursor: pointer;
+}
+
+.lpp-vignette-ingredient {
+    background-color: var(--primary);
+}
+
+.lpp-vignette-appareil {
+    background-color: var(--secondary);
+}
+
+.lpp-vignette-ustensile {
+    background-color: var(--tertiary);
+}
