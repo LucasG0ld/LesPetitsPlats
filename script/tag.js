@@ -5,6 +5,14 @@ const selectedVignette = {
     ustensile : []
 }
 
+let articleDisplays = {
+    ingredient : [],
+    appareil : [],
+    ustensile : []
+}
+
+let testArray = []
+
 function updateArticles() {
     const recipeContainer = document.getElementById("lpp-recipes-section");
     Array.from(recipeContainer.children).forEach(recipe => {
@@ -15,8 +23,30 @@ function updateArticles() {
             let attributesOk = selectedVignette[type].filter(i => triAttributes.indexOf(i) != -1)
             afficher = afficher && (attributesOk.length == selectedVignette[type].length);
         })
-        recipe.style.display = afficher ? 'block' : 'none'; 
+        recipe.style.display = afficher ? 'block' : 'none';
+        const listRecipe = [];
+        if(articleDisplays.ingredient.length < 1) {
+            console.log('ok')
+        }
+        listRecipe.push(recipe);
+        listRecipe.forEach(recipe => {
+            if(recipe.style.display === 'block') {
+                let dataIngredient = recipe.dataset.ingredient.toLowerCase().split(';');
+                let dataAppareil = recipe.dataset.appareil.toLowerCase().split(';');
+                let dataUstensile = recipe.dataset.ustensile.toLowerCase().split(';');
+                articleDisplays.ingredient.push(dataIngredient)
+                articleDisplays.appareil.push(dataAppareil)
+                articleDisplays.ustensile.push(dataUstensile)
+            }
+        })
     })
+    articleDisplays.ingredient = articleDisplays.ingredient.flat()
+    articleDisplays.appareil = articleDisplays.appareil.flat()
+    articleDisplays.ustensile = articleDisplays.ustensile.flat()
+    articleDisplays.ingredient = [...new Set(articleDisplays.ingredient)]
+    articleDisplays.appareil = [...new Set(articleDisplays.appareil)]
+    articleDisplays.ustensile = [...new Set(articleDisplays.ustensile)]
+    displayInformation();
 }
 
 function updateVignettes() {
@@ -45,5 +75,11 @@ function removeVignette(vignetteId, type) {
     if(indexVignette != -1) {
         selectedVignette[type].splice(indexVignette, 1);
         updateVignettes();
+        
+    }
+    articleDisplays = {
+        ingredient : [],
+        appareil : [],
+        ustensile : []
     }
 }

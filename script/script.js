@@ -5,6 +5,7 @@ let infos = {
     description: [],
     ingredient: []
 };
+let applianceAfterTag = [];
 let ingrAfterSearch = [];
 let applianceAfterSearch = [];
 let ustensilsAfterSearch = [];
