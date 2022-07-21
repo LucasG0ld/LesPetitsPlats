@@ -24,6 +24,7 @@ function sortingRecipes() {
                     if (recipe.name.toLowerCase().includes(searchStringMain)) {
                         recipesSearchBar.push(recipe);
                     } else if (recipe.description.toLowerCase().includes(searchStringMain)) {
+                        
                         recipesSearchBar.push(recipe);
                     } else {
                         for (let x = 0; x < recipe.ingredients.length; x++) {
@@ -49,6 +50,3 @@ function sortingRecipes() {
     //}
     //console.timeEnd();
 }
-
-// MAJ second filtre après enlever texte
-// dupliquer recettes pour test console time
