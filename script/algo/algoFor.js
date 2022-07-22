@@ -5,7 +5,7 @@ let searchStringMain = "";
 // Reset du tableau suite à une suppression de lettre dans la searchbar
 function resetSearchbarValue() {
     mainSearchbar.addEventListener("keydown", e => {
-        if (e.key == 8 || e.key == 46) {
+        if (e.key == "Backspace" || e.key == 46) {
             recipesSearchBar = [];
         }
     });
