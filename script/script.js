@@ -34,6 +34,9 @@ async function init() {
     displayRecipe(recipes);
     displayInformation(recipes);
     sortingRecipes();
+    searchIngr();
+    searchAppareil();
+    searchUstensile();
 }
 
 init();
@@ -58,14 +61,20 @@ function displayInformation() {
     displayIngredient();
     displayAppareil();
     displayUstensile();
-    if(searchStringMain == "") {
-        searchInformation();
+    /*if(searchStringMain == "" && articleDisplays.ingredients.length == 0 || articleDisplays.appareils.length == 0 || articleDisplays.ustensiles.length == 0) {
+        console.log(1)
+        //searchInformation();
         searchInformationAppareil();
         searchInformationUstensile();
+    } /*else if(searchStringMain == "" && articleDisplays.ingredients.length != 0 || articleDisplays.appareils.length != 0 || articleDisplays.ustensiles.length != 0) {
+        console.log(2)
+        tagSearchInformation();
+        tagSearchInformationAppareil();
+        tagSearchInformationUstensile();
     } else {
-        secondarySearchInformation();
+        console.log(3)
+        //secondarySearchInformation();
         secondarySearchInformationAppareil();
         secondarySearchInformationUstensile();
-    }
-    
+    }*/
 }

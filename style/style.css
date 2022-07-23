@@ -260,3 +260,7 @@ aside ul li {
 .lpp-vignette-ustensile {
     background-color: var(--tertiary);
 }
+
+.lpp-chevron-up {
+    transform: rotate(180deg);
+}

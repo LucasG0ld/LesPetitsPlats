@@ -1,125 +1,53 @@
-// Recherche ingredients
-function searchInformation() {
-    if (recipesSearchBar.length == 0) {
-        const searchBarIngredient = document.getElementById("lpp-ingredient-searchbar");
-        searchBarIngredient.addEventListener("keyup", e => {
-            const searchString = e.target.value.toLowerCase();
-            const filteredIngredients = triIngredients.filter(ingredient => {
-                return (
-                    ingredient.includes(searchString)
-                );
-            });
-            displayIngredient(filteredIngredients);
-        });
-    }
-}
-
-// Recherche appareils
-function searchInformationAppareil() {
-    const searchBarAppareil = document.getElementById("lpp-appareil-searchbar");
-    searchBarAppareil.addEventListener("keyup", e => {
-        const searchStringAppareil = e.target.value.toLowerCase();
-        const filteredAppareils = triAppareils.filter(appareil => {
-            return (
-                appareil.includes(searchStringAppareil)
-            );
-        });
-        displayAppareil(filteredAppareils);
-    });
-}
-
-// Recherche ustensiles
-function searchInformationUstensile() {
-    const searchBarUstensile = document.getElementById("lpp-ustensile-searchbar");
-    searchBarUstensile.addEventListener("keyup", e => {
-        const searchStringUstensile = e.target.value.toLowerCase();
-        const filteredUstensiles = triUstensiles.filter(ustensile => {
-            return (
-                ustensile.includes(searchStringUstensile)
-            );
-        });
-        displayUstensile(filteredUstensiles);
-    });
-}
-
-//
-function secondarySearchInformation() {
+function searchIngr() {
     const searchBarIngredient = document.getElementById("lpp-ingredient-searchbar");
-        searchBarIngredient.addEventListener("keyup", e => {
-            const searchString = e.target.value.toLowerCase();
-            const filteredIngredients = ingrAfterSearch.filter(ingredient => {
-                return (
-                    ingredient.includes(searchString)
-                );
-            });
-            displayIngredient(filteredIngredients);
-        });
+    searchBarIngredient.addEventListener("keyup", e => {
+        const searchString = e.target.value.toLowerCase();
+        let ingr = document.querySelectorAll("#lpp-ul-ingredient>li");
+        if (searchString.length >= 1) {
+            ingr.forEach(i => {
+                console.log(i)
+                i.style.display= i.dataset.ingr.includes(searchString) ? 'block' : 'none';
+            })
+        } else {
+            ingr.forEach(i => {
+                i.style.display= 'block';
+            })
+        }
+    })
 }
 
-function secondarySearchInformationAppareil() {
+function searchAppareil() {
     const searchBarAppareil = document.getElementById("lpp-appareil-searchbar");
     searchBarAppareil.addEventListener("keyup", e => {
-        const searchStringAppareil = e.target.value.toLowerCase();
-        const filteredAppareils = applianceAfterSearch.filter(appareil => {
-            return (
-                appareil.includes(searchStringAppareil)
-            );
-        });
-        displayAppareil(filteredAppareils);
-    });
+        const searchString = e.target.value.toLowerCase();
+        let appareil = document.querySelectorAll("#lpp-ul-appareil>li");
+        if (searchString.length >= 1) {
+            appareil.forEach(i => {
+                console.log(i)
+                i.style.display= i.dataset.appareil.includes(searchString) ? 'block' : 'none';
+            })
+        } else {
+            appareil.forEach(i => {
+                i.style.display= 'block';
+            })
+        }
+    })
 }
 
-// Recherche ustensiles
-function secondarySearchInformationUstensile() {
+function searchUstensile() {
     const searchBarUstensile = document.getElementById("lpp-ustensile-searchbar");
     searchBarUstensile.addEventListener("keyup", e => {
-        const searchStringUstensile = e.target.value.toLowerCase();
-        const filteredUstensiles = ustensilsAfterSearch.filter(ustensile => {
-            return (
-                ustensile.includes(searchStringUstensile)
-            );
-        });
-        displayUstensile(filteredUstensiles);
-    });
-}
-
-//
-function tagSearchInformation() {
-    const searchBarIngredient = document.getElementById("lpp-ingredient-searchbar");
-        searchBarIngredient.addEventListener("keyup", e => {
-            const searchString = e.target.value.toLowerCase();
-            const filteredIngredients = articleDisplays.ingredients.filter(ingredient => {
-                return (
-                    ingredient.includes(searchString)
-                );
-            });
-            displayIngredient(filteredIngredients);
-        });
-}
-
-function tagSearchInformationAppareil() {
-    const searchBarAppareil = document.getElementById("lpp-appareil-searchbar");
-    searchBarAppareil.addEventListener("keyup", e => {
-        const searchStringAppareil = e.target.value.toLowerCase();
-        const filteredAppareils = articleDisplays.appareils.filter(appareil => {
-            return (
-                appareil.includes(searchStringAppareil)
-            );
-        });
-        displayAppareil(filteredAppareils);
-    });
-}
-
-// Recherche ustensiles
-function tagSearchInformationUstensile() {
-    const searchBarUstensile = document.getElementById("lpp-ustensile-searchbar");
-    searchBarUstensile.addEventListener("keyup", e => {
-        const searchStringUstensile = e.target.value.toLowerCase();
-        const filteredUstensiles = articleDisplays.ustensiles.filter(ustensile => {
-            return (
-                ustensile.includes(searchStringUstensile)
-            );
-        });
-        displayUstensile(filteredUstensiles);
-    });
+        const searchString = e.target.value.toLowerCase();
+        let ustensile = document.querySelectorAll("#lpp-ul-ustensile>li");
+        if (searchString.length >= 1) {
+            ustensile.forEach(i => {
+                console.log(i)
+                i.style.display= i.dataset.ustensile.includes(searchString) ? 'block' : 'none';
+            })
+        } else {
+            ustensile.forEach(i => {
+                i.style.display= 'block';
+            })
+        }
+    })
 }

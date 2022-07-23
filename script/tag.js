@@ -1,4 +1,7 @@
 let message = document.getElementById('lpp-message');
+const searchBarIngredient = document.getElementById("lpp-ingredient-searchbar");
+const searchBarAppareil = document.getElementById("lpp-appareil-searchbar");
+const searchBarUstensile = document.getElementById("lpp-ustensile-searchbar");
 
 // Recuperer les information des asides
 const selectedVignette = {
@@ -34,7 +37,6 @@ function updateArticles() {
         hasArticles = hasArticles || afficher;
         const listRecipe = [];
         if(articleDisplays.ingredients.length < 1) {
-            console.log('ok')
         }
         listRecipe.push(recipe);
         listRecipe.forEach(recipe => {
@@ -54,7 +56,6 @@ function updateArticles() {
     articleDisplays.ingredients = [...new Set(articleDisplays.ingredients)]
     articleDisplays.appareils = [...new Set(articleDisplays.appareils)]
     articleDisplays.ustensiles = [...new Set(articleDisplays.ustensiles)]
-    console.log(articleDisplays)
     displayInformation();
     if (!hasArticles) {
         message.style.display = 'block';
@@ -68,7 +69,6 @@ function updateVignettes() {
         const vignettes = selectedVignette[type];
         vignettes.forEach(vignetteId => {
             const vignetteIdWithoutSpace = vignetteId.replace(/ /g, "-");
-            console.log(type)
             const vignetteIngredient = `<div id="testRm lpp-${type}-${vignetteIdWithoutSpace}" class="lpp-vignette lpp-vignette-${type}" onclick="removeVignette('${vignetteId}', '${type}')"><p>${vignetteId}</p><img tabindex="0" id="test-remove" src="./src/cross.svg" alt=""></div>`
             vignetteContainer.innerHTML += (vignetteIngredient);
         })
@@ -79,8 +79,10 @@ function updateVignettes() {
 function addVignette(vignetteId, type) {
     if(selectedVignette[type].indexOf(vignetteId) == -1) {
         selectedVignette[type].push(vignetteId);
-        console.log(type)
         updateVignettes();
+        searchBarIngredient.value = ""
+        searchBarAppareil.value = ""
+        searchBarUstensile.value = ""
     }
 }
 

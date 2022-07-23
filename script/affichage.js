@@ -4,30 +4,30 @@ function displayIngredient(filteredIngredients) {
     // Afficher ingredients
     ingredientUl.innerHTML = "";
     triIngredients.forEach(ingredientArray => {
-        let ingredientAside = `<li id="${ingredientArray}" onClick="addVignette(this.id, 'ingredient')">${ingredientArray}</li>`
+        let ingredientAside = `<li data-ingr="${ingredientArray}" id="${ingredientArray}" onClick="addVignette(this.id, 'ingredient')">${ingredientArray}</li>`
         ingredientUl.innerHTML += ingredientAside;
     });
 
     if (filteredIngredients != undefined) {
         ingredientUl.innerHTML = "";
         filteredIngredients.forEach(ingredientArray => {
-            let ingredientTriAside = `<li id="${ingredientArray}" onClick="addVignette(this.id, 'ingredient')">${ingredientArray}</li>`
+            let ingredientTriAside = `<li data-ingr="${ingredientArray}"  id="${ingredientArray}" onClick="addVignette(this.id, 'ingredient')">${ingredientArray}</li>`
             ingredientUl.innerHTML += ingredientTriAside;
         });
     }
 
-    if (recipesSearchBar.length > 1 && filteredIngredients == undefined) {
+    if (recipesSearchBar.length >= 1 && filteredIngredients == undefined) {
         ingredientUl.innerHTML = "";
         ingrAfterSearch.forEach(ingredientArray => {
-            let ingredientTriAside = `<li id="${ingredientArray}" onClick="addVignette(this.id, 'ingredient')">${ingredientArray}</li>`
+            let ingredientTriAside = `<li data-ingr="${ingredientArray}"  id="${ingredientArray}" onClick="addVignette(this.id, 'ingredient')">${ingredientArray}</li>`
             ingredientUl.innerHTML += ingredientTriAside;
         })
     }
 
-    if (articleDisplays.ingredients.length > 1 && filteredIngredients == undefined) {
+    if (articleDisplays.ingredients.length >= 1 && filteredIngredients == undefined) {
         ingredientUl.innerHTML = "";
         articleDisplays.ingredients.forEach(ingredientArray => {
-            let ingredientTriAside = `<li id="${ingredientArray}" onClick="addVignette(this.id, 'ingredient')">${ingredientArray}</li>`
+            let ingredientTriAside = `<li data-ingr="${ingredientArray}"  id="${ingredientArray}" onClick="addVignette(this.id, 'ingredient')">${ingredientArray}</li>`
             ingredientUl.innerHTML += ingredientTriAside;
         })
     }
@@ -40,30 +40,31 @@ function displayAppareil(filteredAppareils) {
     appareilUl.innerHTML = "";
     triAppareils.forEach(appareilArray => {
         let appareils = appareilArray
-        let appareilAside = `<li id="${appareils}" onClick="addVignette(this.id, 'appareil')">${appareils}</li>`;
+        let appareilAside = `<li <li data-appareil="${appareils}" id="${appareils}" onClick="addVignette(this.id, 'appareil')">${appareils}</li>`;
         appareilUl.innerHTML += appareilAside;
     });
 
     if (filteredAppareils != undefined) {
         appareilUl.innerHTML = "";
         filteredAppareils.forEach(appareilArray => {
-            let appareilTriAside = `<li id="${appareilArray}" onClick="addVignette(this.id, 'appareil')">${appareilArray}</li>`;
+            let appareilTriAside = `<li data-appareil="${appareilArray}" id="${appareilArray}" onClick="addVignette(this.id, 'appareil')">${appareilArray}</li>`;
             appareilUl.innerHTML += appareilTriAside;
         });
     }
 
-    if (recipesSearchBar.length > 1 && filteredAppareils == undefined) {
+    if (recipesSearchBar.length >= 1 && filteredAppareils == undefined) {
         appareilUl.innerHTML = "";
         applianceAfterSearch.forEach(applianceArray => {
-            let applianceTriAside = `<li id="${applianceArray}" onClick="addVignette(this.id, 'appareil')">${applianceArray}</li>`;
+            let applianceTriAside = `<li data-appareil="${applianceArray}" id="${applianceArray}" onClick="addVignette(this.id, 'appareil')">${applianceArray}</li>`;
             appareilUl.innerHTML += applianceTriAside;
         })
     }
 
-    if (articleDisplays.appareils.length > 1 && filteredIngredients == undefined) {
+    if (articleDisplays.appareils.length >= 1 && filteredIngredients == undefined) {
         appareilUl.innerHTML = "";
+        console.log('ty')
         articleDisplays.appareils.forEach(applianceArray => {
-            let applianceTriAside = `<li id="${applianceArray}" onClick="addVignette(this.id, 'appareil')">${applianceArray}</li>`;
+            let applianceTriAside = `<li data-appareil="${applianceArray}" id="${applianceArray}" onClick="addVignette(this.id, 'appareil')">${applianceArray}</li>`;
             appareilUl.innerHTML += applianceTriAside;
         })
     }
@@ -76,30 +77,30 @@ function displayUstensile(filteredUstensiles) {
     // Afficher ustensiles
     ustensileUl.innerHTML = "";
     triUstensiles.forEach(ustensileArray => {
-        let ustensileAside = `<li id="${ustensileArray}" onClick="addVignette(this.id, 'ustensile')">${ustensileArray}</li>`
+        let ustensileAside = `<li data-ustensile="${ustensileArray}" id="${ustensileArray}" onClick="addVignette(this.id, 'ustensile')">${ustensileArray}</li>`
         ustensileUl.innerHTML += ustensileAside;
     })
 
     if (filteredUstensiles != undefined) {
         ustensileUl.innerHTML = "";
         filteredUstensiles.forEach(ustensileArray => {
-            let ustensileTriAside = `<li id="${ustensileArray}" onClick="addVignette(this.id, 'ustensile')">${ustensileArray}</li>`
+            let ustensileTriAside = `<li data-ustensile="${ustensileArray}" id="${ustensileArray}" onClick="addVignette(this.id, 'ustensile')">${ustensileArray}</li>`
             ustensileUl.innerHTML += ustensileTriAside;
         });
     }
 
-    if (recipesSearchBar.length > 1 && filteredUstensiles == undefined) {
+    if (recipesSearchBar.length >= 1 && filteredUstensiles == undefined) {
         ustensileUl.innerHTML = "";
         ustensilsAfterSearch.forEach(ustensilArray => {
-            let ustensilsTriAside = `<li id="${ustensilArray}" onClick="addVignette(this.id, 'ustensile')">${ustensilArray}</li>`;
+            let ustensilsTriAside = `<li data-ustensile="${ustensilArray}" id="${ustensilArray}" onClick="addVignette(this.id, 'ustensile')">${ustensilArray}</li>`;
             ustensileUl.innerHTML += ustensilsTriAside;
         })
     }
 
-    if (articleDisplays.ustensiles.length > 1 && filteredIngredients == undefined) {
+    if (articleDisplays.ustensiles.length >= 1 && filteredIngredients == undefined) {
         ustensileUl.innerHTML = "";
         articleDisplays.ustensiles.forEach(ustensilArray => {
-            let ustensilsTriAside = `<li id="${ustensilArray}" onClick="addVignette(this.id, 'ustensile')">${ustensilArray}</li>`;
+            let ustensilsTriAside = `<li data-ustensile="${ustensilArray}" id="${ustensilArray}" onClick="addVignette(this.id, 'ustensile')">${ustensilArray}</li>`;
             ustensileUl.innerHTML += ustensilsTriAside;
         })
     }
