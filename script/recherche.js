@@ -88,7 +88,7 @@ function tagSearchInformation() {
     const searchBarIngredient = document.getElementById("lpp-ingredient-searchbar");
         searchBarIngredient.addEventListener("keyup", e => {
             const searchString = e.target.value.toLowerCase();
-            const filteredIngredients = articleDisplays.ingredient.filter(ingredient => {
+            const filteredIngredients = articleDisplays.ingredients.filter(ingredient => {
                 return (
                     ingredient.includes(searchString)
                 );
@@ -101,7 +101,7 @@ function tagSearchInformationAppareil() {
     const searchBarAppareil = document.getElementById("lpp-appareil-searchbar");
     searchBarAppareil.addEventListener("keyup", e => {
         const searchStringAppareil = e.target.value.toLowerCase();
-        const filteredAppareils = articleDisplays.appareil.filter(appareil => {
+        const filteredAppareils = articleDisplays.appareils.filter(appareil => {
             return (
                 appareil.includes(searchStringAppareil)
             );
@@ -115,7 +115,7 @@ function tagSearchInformationUstensile() {
     const searchBarUstensile = document.getElementById("lpp-ustensile-searchbar");
     searchBarUstensile.addEventListener("keyup", e => {
         const searchStringUstensile = e.target.value.toLowerCase();
-        const filteredUstensiles = articleDisplays.ustensile.filter(ustensile => {
+        const filteredUstensiles = articleDisplays.ustensiles.filter(ustensile => {
             return (
                 ustensile.includes(searchStringUstensile)
             );
