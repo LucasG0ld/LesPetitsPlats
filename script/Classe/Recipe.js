@@ -18,7 +18,7 @@ class Recipe {
                 <main class="lpp-recette-container">
                     <header class="lpp-recette-header">
                         <h2>${this.name}</h2>
-                        <h2 class="lpp-recette-header-time"><img class="lpp-recette-time" src="src/time.svg" alt=""> ${this.time}</h2>
+                        <h2 class="lpp-recette-header-time"><img class="lpp-recette-time" src="src/time.svg" alt=""> ${this.time} min</h2>
                     </header>
                     <div class="lpp-recette-text">
                         <ul>`
@@ -26,9 +26,9 @@ class Recipe {
             let separator = ingredient.hasOwnProperty("quantity") || ingredient.hasOwnProperty("unit") ? ": " : "";
 
             // ?? = si pas existant ecrire ce qu'il y a a droite
-            homePageTemplate+=`<li>${ingredient.ingredient}${separator}${ingredient.quantity ?? ""}${ingredient.unit ?? ""}</li>`
+            homePageTemplate += `<li>${ingredient.ingredient}${separator}${ingredient.quantity ?? ""}${ingredient.unit ?? ""}</li>`
         })
-                        homePageTemplate+=`</ul>
+        homePageTemplate += `</ul>
                         <span class="lpp-recette-description">${this.description}</span>
                     </div>
 
@@ -36,7 +36,20 @@ class Recipe {
 
             </article>`;
         return homePageTemplate;
-        
+
+    }
+
+    getAttributes(type) {
+        switch (type) {
+            case "ingredient":
+                return this.ingredients.map(ingredient => ingredient.ingredient);
+            case "appareil":
+                return [this.appliance];
+            case "ustensile":
+                return this.ustensils;
+            default:
+                return [];
+        }
     }
 
     /*// Aside ingredient
@@ -68,5 +81,5 @@ class Recipe {
         return ustensileAside;
     }*/
 
-    
+
 }

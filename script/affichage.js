@@ -24,9 +24,9 @@ function displayIngredient(filteredIngredients) {
         })
     }
 
-    if (articleDisplays.ingredient.length > 1 && filteredIngredients == undefined) {
+    if (articleDisplays.ingredients.length > 1 && filteredIngredients == undefined) {
         ingredientUl.innerHTML = "";
-        articleDisplays.ingredient.forEach(ingredientArray => {
+        articleDisplays.ingredients.forEach(ingredientArray => {
             let ingredientTriAside = `<li id="${ingredientArray}" onClick="addVignette(this.id, 'ingredient')">${ingredientArray}</li>`
             ingredientUl.innerHTML += ingredientTriAside;
         })
@@ -60,9 +60,9 @@ function displayAppareil(filteredAppareils) {
         })
     }
 
-    if (articleDisplays.appareil.length > 1 && filteredIngredients == undefined) {
+    if (articleDisplays.appareils.length > 1 && filteredIngredients == undefined) {
         appareilUl.innerHTML = "";
-        articleDisplays.appareil.forEach(applianceArray => {
+        articleDisplays.appareils.forEach(applianceArray => {
             let applianceTriAside = `<li id="${applianceArray}" onClick="addVignette(this.id, 'appareil')">${applianceArray}</li>`;
             appareilUl.innerHTML += applianceTriAside;
         })
@@ -91,15 +91,15 @@ function displayUstensile(filteredUstensiles) {
     if (recipesSearchBar.length > 1 && filteredUstensiles == undefined) {
         ustensileUl.innerHTML = "";
         ustensilsAfterSearch.forEach(ustensilArray => {
-            let ustensilsTriAside = `<li id="${ustensilArray}" onClick="addVignette(this.id, 'appareil')">${ustensilArray}</li>`;
+            let ustensilsTriAside = `<li id="${ustensilArray}" onClick="addVignette(this.id, 'ustensile')">${ustensilArray}</li>`;
             ustensileUl.innerHTML += ustensilsTriAside;
         })
     }
 
-    if (articleDisplays.ustensile.length > 1 && filteredIngredients == undefined) {
+    if (articleDisplays.ustensiles.length > 1 && filteredIngredients == undefined) {
         ustensileUl.innerHTML = "";
-        articleDisplays.ustensile.forEach(ustensilArray => {
-            let ustensilsTriAside = `<li id="${ustensilArray}" onClick="addVignette(this.id, 'appareil')">${ustensilArray}</li>`;
+        articleDisplays.ustensiles.forEach(ustensilArray => {
+            let ustensilsTriAside = `<li id="${ustensilArray}" onClick="addVignette(this.id, 'ustensile')">${ustensilArray}</li>`;
             ustensileUl.innerHTML += ustensilsTriAside;
         })
     }
