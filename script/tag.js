@@ -1,3 +1,5 @@
+let message = document.getElementById('lpp-message');
+
 // Recuperer les information des asides
 const selectedVignette = {
     ingredient : [],
@@ -6,14 +8,19 @@ const selectedVignette = {
 }
 
 let articleDisplays = {
-    ingredient : [],
-    appareil : [],
-    ustensile : []
+    ingredients : [],
+    appareils : [],
+    ustensiles : []
 }
 
 let testArray = []
 
 function updateArticles() {
+    let hasArticles = false;
+    message.style.display = 'none';
+    articleDisplays.ingredients = [];
+    articleDisplays.appareils = [];
+    articleDisplays.ustensiles = [];
     const recipeContainer = document.getElementById("lpp-recipes-section");
     Array.from(recipeContainer.children).forEach(recipe => {
         let afficher = true;
@@ -24,8 +31,9 @@ function updateArticles() {
             afficher = afficher && (attributesOk.length == selectedVignette[type].length);
         })
         recipe.style.display = afficher ? 'block' : 'none';
+        hasArticles = hasArticles || afficher;
         const listRecipe = [];
-        if(articleDisplays.ingredient.length < 1) {
+        if(articleDisplays.ingredients.length < 1) {
             console.log('ok')
         }
         listRecipe.push(recipe);
@@ -34,19 +42,23 @@ function updateArticles() {
                 let dataIngredient = recipe.dataset.ingredient.toLowerCase().split(';');
                 let dataAppareil = recipe.dataset.appareil.toLowerCase().split(';');
                 let dataUstensile = recipe.dataset.ustensile.toLowerCase().split(';');
-                articleDisplays.ingredient.push(dataIngredient)
-                articleDisplays.appareil.push(dataAppareil)
-                articleDisplays.ustensile.push(dataUstensile)
+                articleDisplays.ingredients.push(dataIngredient)
+                articleDisplays.appareils.push(dataAppareil)
+                articleDisplays.ustensiles.push(dataUstensile)
             }
         })
     })
-    articleDisplays.ingredient = articleDisplays.ingredient.flat()
-    articleDisplays.appareil = articleDisplays.appareil.flat()
-    articleDisplays.ustensile = articleDisplays.ustensile.flat()
-    articleDisplays.ingredient = [...new Set(articleDisplays.ingredient)]
-    articleDisplays.appareil = [...new Set(articleDisplays.appareil)]
-    articleDisplays.ustensile = [...new Set(articleDisplays.ustensile)]
+    articleDisplays.ingredients = articleDisplays.ingredients.flat()
+    articleDisplays.appareils = articleDisplays.appareils.flat()
+    articleDisplays.ustensiles = articleDisplays.ustensiles.flat()
+    articleDisplays.ingredients = [...new Set(articleDisplays.ingredients)]
+    articleDisplays.appareils = [...new Set(articleDisplays.appareils)]
+    articleDisplays.ustensiles = [...new Set(articleDisplays.ustensiles)]
+    console.log(articleDisplays)
     displayInformation();
+    if (!hasArticles) {
+        message.style.display = 'block';
+    }
 }
 
 function updateVignettes() {
@@ -56,6 +68,7 @@ function updateVignettes() {
         const vignettes = selectedVignette[type];
         vignettes.forEach(vignetteId => {
             const vignetteIdWithoutSpace = vignetteId.replace(/ /g, "-");
+            console.log(type)
             const vignetteIngredient = `<div id="testRm lpp-${type}-${vignetteIdWithoutSpace}" class="lpp-vignette lpp-vignette-${type}" onclick="removeVignette('${vignetteId}', '${type}')"><p>${vignetteId}</p><img tabindex="0" id="test-remove" src="./src/cross.svg" alt=""></div>`
             vignetteContainer.innerHTML += (vignetteIngredient);
         })
@@ -66,6 +79,7 @@ function updateVignettes() {
 function addVignette(vignetteId, type) {
     if(selectedVignette[type].indexOf(vignetteId) == -1) {
         selectedVignette[type].push(vignetteId);
+        console.log(type)
         updateVignettes();
     }
 }
@@ -78,8 +92,8 @@ function removeVignette(vignetteId, type) {
         
     }
     articleDisplays = {
-        ingredient : [],
-        appareil : [],
-        ustensile : []
+        ingredients : [],
+        appareils : [],
+        ustensiles : []
     }
 }
